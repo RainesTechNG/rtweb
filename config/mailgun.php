@@ -8,8 +8,8 @@ return [
      */
     'api' => [
         'endpoint' => 'api.mailgun.net',
-        'version' => 'v3',
-        'ssl' => true
+        'version'  => 'v3',
+        'ssl'      => true,
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
      */
     'from' => [
         'address' => 'support@rainestech.com',
-        'name' => 'Raines Technologies NG LTD'
+        'name'    => 'Raines Technologies NG LTD',
     ],
 
     /*
@@ -70,7 +70,7 @@ return [
      * Specify an email address that receives all emails send with Mailgun
      * This email address will overwrite all email addresses within messages
      */
-    'catch_all' => "",
+    'catch_all' => '',
 
     /*
      * Testing
@@ -83,5 +83,5 @@ return [
      *
      * Note: Mailgun DOES charge your account for messages sent in test mode.
      */
-    'testmode' => false
+    'testmode' => false,
 ];

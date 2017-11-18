@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Entity\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -43,14 +43,15 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -58,7 +59,8 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \App\Entity\User
      */
     protected function create(array $data)
@@ -67,14 +69,15 @@ class RegisterController extends Controller
         $user->username = $data['username'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
-            $user->confirmationCode = substr(
+        $user->confirmationCode = substr(
                 str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),
-                    0 , 10 );
+                    0, 10);
         $user->save();
+
         return $user;
     }
 
-    /**
+    /*
      * The user has been registered.
      *
      * @param  \Illuminate\Http\Request  $request

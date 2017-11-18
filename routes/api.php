@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +12,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => ['api']], function ()
-{
+Route::group(['middleware' => ['api']], function () {
     Route::any('/mailgun/store', ['as' => 'mail.store', 'uses' => 'MailgunController@store']);
 
-    Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function() {
+    Route::group(['namespace' => 'Api\v1', 'prefix' => 'v1'], function () {
         Route::post('register', 'AuthController@register');
         Route::post('login', 'AuthController@login');
         Route::post('recover', 'AuthController@recover');

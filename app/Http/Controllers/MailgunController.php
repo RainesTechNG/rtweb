@@ -15,16 +15,16 @@ class MailgunController extends Controller
         $mailgunMsg->save();
 
         //if (self::attachment($request))
-            return response('ok', 200);
+        return response('ok', 200);
 
         //@todo return response('failed', 500);
     }
 
     private function attachment($request)
     {
-        $files = json_decode($request->input('attachments'),true);
+        $files = json_decode($request->input('attachments'), true);
         $mg = new Mailgun(config('mailgun.api_key'));
-        foreach ($files as $file){
+        foreach ($files as $file) {
             $fileName = $file['name'];
             $content = $mg->getAttachment($file['url'])->http_response_body;
         }

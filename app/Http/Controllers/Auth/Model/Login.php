@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: raines
  * Date: 10/5/15
- * Time: 8:15 PM
+ * Time: 8:15 PM.
  */
 
 namespace App\Http\Controllers\Auth\Model;
 
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 trait Login
 {
@@ -18,24 +18,28 @@ trait Login
     /**
      * Attempt to log the user into the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return bool
      */
     protected function attemptLogin(Request $request)
     {
-        if($this->guard()->attempt(
+        if ($this->guard()->attempt(
             $this->credentialsEmail($request), $request->has('remember')
-        ))  return true;
-
-        else return $this->guard()->attempt(
+        )) {
+            return true;
+        } else {
+            return $this->guard()->attempt(
             $this->credentialsName($request), $request->has('remember')
         );
+        }
     }
 
     /**
      * Get the needed authorization credentials from the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     protected function credentialsEmail(Request $request)
@@ -46,7 +50,8 @@ trait Login
     /**
      * Get the needed authorization credentials from the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     protected function credentialsName(Request $request)

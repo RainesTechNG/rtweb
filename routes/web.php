@@ -40,4 +40,3 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/subscribe', ['as' => 'newsletter.subscribe', 'uses' => 'NewsletterController@subscribe']);
     });
 });
-

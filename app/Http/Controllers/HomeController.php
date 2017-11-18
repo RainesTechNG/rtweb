@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -27,15 +26,14 @@ class HomeController extends Controller
     public function logout()
     {
         Auth::logout();
+
         return redirect('/');
     }
 
     public function about($about = null)
     {
-        if ($about)
-        {
-            if (method_exists($this, $about))
-            {
+        if ($about) {
+            if (method_exists($this, $about)) {
                 return $this->$about($about);
             }
         }
@@ -66,12 +64,12 @@ class HomeController extends Controller
     public function contactPost(Request $request)
     {
         $request->validate([
-                'contact-title' => 'required|min:5|max:255',
-                'contact-message' => 'required|min:10|max:5000',
-                'contact-name' => 'required|min:10|max:255',
-                'contact-phone' => 'required|min:10|max:14',
-                'contact-email' => 'required|email',
-                'g-recaptcha-response' => 'required|captcha'
+                'contact-title'        => 'required|min:5|max:255',
+                'contact-message'      => 'required|min:10|max:5000',
+                'contact-name'         => 'required|min:10|max:255',
+                'contact-phone'        => 'required|min:10|max:14',
+                'contact-email'        => 'required|email',
+                'g-recaptcha-response' => 'required|captcha',
         ]);
 
         //$contactMsg = ContactMsg::firstOrCreate($request->except(['g-recaptcha-response', '_token']));
@@ -79,12 +77,12 @@ class HomeController extends Controller
 
         $msg = [
             'title' => 'Message Received!',
-            'type' => 1,
-            'body' => 'Your Message has been received. We will get back to you using the email provided. Have a wonderful day.',
+            'type'  => 1,
+            'body'  => 'Your Message has been received. We will get back to you using the email provided. Have a wonderful day.',
 
         ];
 
-        if($request->ajax()){
+        if ($request->ajax()) {
             return response()->json($msg);
         }
 
