@@ -1,25 +1,4 @@
-# Laravel 5.4 with Angular 4.3.4(Using Angular cli)
-
-## Installation
-
-```
-composer install
-npm install
-```
-
-Create `.env` file (can be based on `.env.example`)
-```
-php artisan key:generate
-```
-
-## Build
-
-```
-ng build
-```
-
-## Run Laravel
-
-```
-php artisan serve
-```
+<<<<<<< HEAD
+# rtweb
+RainesTech Official Website Repo
+>>>>>>> 860578854ad4182421a9d573050ac3795f7a292d
