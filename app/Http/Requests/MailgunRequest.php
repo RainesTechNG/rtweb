@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -14,9 +15,9 @@ class MailgunRequest extends FormRequest
     {
         return [
             'recipient'  => 'string|required',
-            'sender'  => 'string|required',
-            'subject'  => 'string|required',
-            'token'   => 'required|string',
+            'sender'     => 'string|required',
+            'subject'    => 'string|required',
+            'token'      => 'required|string',
         ];
     }
 
@@ -29,5 +30,4 @@ class MailgunRequest extends FormRequest
     {
         return true;
     }
-
 }

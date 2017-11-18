@@ -67,7 +67,7 @@
 	<div class="fluid_container">
         <div class="camera_wrap camera_azure_skin" id="camera_random">
 <?php
-$slides = array(
+$slides = [
             '<div data-thumb="../images/slides/thumbs/bridge.jpg" data-src="../images/slides/bridge.jpg">
                 <div class="camera_caption fadeFromBottom">
                     Camera is a responsive/adaptive slideshow. <em>Try to resize the browser window</em>
@@ -97,8 +97,8 @@ $slides = array(
                 <div class="camera_caption fadeFromBottom">
                     Different color skins and layouts available, <em>fullscreen ready too</em>
                 </div>
-            </div>'
-);
+            </div>',
+];
 shuffle($slides);
 foreach ($slides as $slides) {
     echo "$slides\n";
