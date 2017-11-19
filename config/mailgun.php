@@ -22,13 +22,13 @@ return [
      * Mailgun (private) API key
      *
      */
-    'api_key' => 'key-d0b145a064f69e66b10001248b0cc3d7',
+    'api_key' => '',
 
     /*
      * Mailgun public API key
      *
      */
-    'public_api_key' => 'pubkey-f5a8c4c5d140c7e765db21c38300b883',
+    'public_api_key' => '',
 
     /*
      * You may wish for all e-mails sent with Mailgun to be sent from
